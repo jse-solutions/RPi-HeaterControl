@@ -1,0 +1,5 @@
+crontab -e
+Ruft die cronjob Tabelle auf. Diese enthält folgende Einträge:
+*/5 * * * * sudo php -f /var/www/html/init.php >> /home/pi/pumpenstatus.log 2>&1
+*/5 * * * * sudo python /home/pi/hd44780/info_to_lcd.py
+

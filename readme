@@ -3,3 +3,14 @@ Ruft die cronjob Tabelle auf. Diese enthält folgende Einträge:
 */5 * * * * sudo php -f /var/www/html/init.php >> /home/pi/pumpenstatus.log 2>&1
 */5 * * * * sudo python /home/pi/hd44780/info_to_lcd.py
 
+sudo nano /etc/rc.local
+Beim Booten ausführen:
+# Print IP Adresse
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+  printf "Meine IP Adresse lautet: %s\n" "$_IP"
+fi
+
+#GPIO Ports initialisieren
+sudo ./home/pi/scripts/gpio_init.sh
+printf "GPIO Ports initialiert..."
